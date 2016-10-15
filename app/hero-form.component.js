@@ -16,6 +16,7 @@ var HeroFormComponent = (function () {
             'Super Hot', 'Weather Changer'];
         this.model = new hero_1.Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
         this.submitted = false;
+        this.active = true;
     }
     HeroFormComponent.prototype.onSubmit = function () { this.submitted = true; };
     Object.defineProperty(HeroFormComponent.prototype, "diagnostic", {
@@ -24,6 +25,12 @@ var HeroFormComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    HeroFormComponent.prototype.newHero = function () {
+        var _this = this;
+        this.model = new hero_1.Hero(42, '', '');
+        this.active = false;
+        setTimeout(function () { return _this.active = true; }, 0);
+    };
     HeroFormComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
